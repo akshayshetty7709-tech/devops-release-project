@@ -10,6 +10,8 @@ def build_response(path):
         return 200, {"status": "ok"}
     if path == "/":
         return 200, {"app": "devops-demo", "version": VERSION}
+    if path == "/version":
+        return 200, {"version": VERSION}
     return 404, {"error": "not found"}
 
 

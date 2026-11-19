@@ -17,7 +17,11 @@ class AppTests(unittest.TestCase):
     def test_not_found(self):
         status, _ = build_response("/nope")
         self.assertEqual(status, 404)
-
+   
+    def test_version(self):
+        status, body = build_response("/version")
+        self.assertEqual(status, 200)
+        self.assertIn("version",body)
 
 if __name__ == "__main__":
     unittest.main()
