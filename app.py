@@ -10,6 +10,8 @@ def build_response(path):
         return 200, {"status": "ok"}
     if path == "/":
         return 200, {"app": "devops-demo", "version": VERSION}
+    if path == "/version":
+        return 200, {"version": VERSION}
     return 404, {"error": "not found"}
 
 
@@ -25,6 +27,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "7070"))
+    port = int(os.environ.get("PORT", "9090"))
+
     print(f"devops-demo {VERSION} listening on {port}")
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
