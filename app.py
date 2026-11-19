@@ -25,6 +25,6 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8080"))
+    port = int(os.environ.get("PORT", "7070"))
     print(f"devops-demo {VERSION} listening on {port}")
     HTTPServer(("0.0.0.0", port), Handler).serve_forever()
